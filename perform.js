@@ -1,5 +1,14 @@
 function perform() {
-    //TODO implement
+    var param = arguments[1]();
+    console.dir(arguments);
+    console.log('***',param);
+
+    return {
+        then: function(val) {
+            param = val(param);
+            return this;
+        }
+    }
 }
 
 perform(null, function() {
@@ -7,6 +16,23 @@ perform(null, function() {
     console.log(param);
     return param;
 })
+
+    .then(function(param) {
+        console.log(++param);
+        return param;
+    })
+    .then(function(param) {
+        console.log(++param);
+        return param;
+    })
+    .then(function(param) {
+        console.log(++param);
+        return param;
+    })
+    .then(function(param) {
+        console.log(++param);
+        return param;
+    })
     .then(function(param) {
         console.log(++param);
         return param;
